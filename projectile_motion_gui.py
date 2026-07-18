@@ -54,6 +54,9 @@ def momentum(velocity, theta, g):
     horizontal_range = ((velocity*2)*math.sin(2*theta))/g
     num = float(horizontal_range)
     horizontal_range=abs(num)
+    time_of_flight=(2*velocity*math.sin(theta))/g
+    num = float(time_of_flight)
+    time_of_flight=abs(num)
     #y=i*math.tan(theta) / g*(i**2)/(2*(velocity)**2)*math.cos(theta)**2
     h_max=(velocity*math.sin(theta))**2/2*g
     print(h_max)
@@ -68,10 +71,10 @@ def momentum(velocity, theta, g):
         x=[]
         for i in range(0,int(horizontal_range/2)):
             x.append(i)
-        print("a:"+str(x)) 
+        #print("a:"+str(x)) 
         for i in range(0,int(h_max)):
             x.append(i)
-        print("b:"+str(x))   
+        #print("b:"+str(x))   
         '''for j in range(0,int(h_max)) :
                 print("b:"+str(j))
                 pygame.draw.circle(window, red, (i, j), 5)
@@ -84,11 +87,13 @@ def momentum(velocity, theta, g):
 
         pygame.draw.line(window, black, (50, 650), (1350, 650), 4)
         pygame.draw.line(window, black, (50, 650), (50, 50), 4)
-        drawh_range = font.render(str('horizontalrange is') +str(horizontal_range)+' mts', True, red)
-        drawh_flight = font.render(str('height is') +str(h_max)+' mts', True, red)
+        drawh_range = font.render(str('horizontalrange is ') +str(horizontal_range)+' mts', True, red)
+        drawh_flight = font.render(str('height is ') +str(h_max)+' mts', True, red)
+        drawh_time = font.render(str('time of flight is ') +str(time_of_flight)+' seconds', True, red)
 
         window.blit(drawh_range, (1000, 20))
         window.blit(drawh_flight, (1000, 40))
+        window.blit(drawh_time, (1000, 60))
 
         pygame.display.update()
 class parameters():
